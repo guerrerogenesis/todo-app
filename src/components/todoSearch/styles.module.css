@@ -1,0 +1,6 @@
+.inputContainer{
+    @apply w-full my-5 flex justify-center
+}
+.searchInput{
+    @apply w-3/4 bg-white/[.05] rounded-full h-10 px-5 text-white placeholder:text-white/[.25] my-5
+}

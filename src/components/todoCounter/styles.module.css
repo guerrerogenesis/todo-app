@@ -1,0 +1,14 @@
+
+.titleCounter 
+{
+    @apply mt-10 text-3xl text-center text-white font-quicksand;
+
+}
+
+.headerContainer {
+    @apply w-full flex justify-center; 
+    
+}
+.headerImg {
+    @apply mt-20 w-4/12;
+}

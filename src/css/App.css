@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    
+    @apply bg-contain bg-no-repeat bg-gradient-to-tr from-ultramarine via-ultramarine to-purple min-h-screen h-auto;
+}
+p{
+    @apply text-white;
+}
+
+#root {
+    @apply max-w-[500px] m-auto
+}
+
+
+
+
