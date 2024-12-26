@@ -7,26 +7,20 @@ import checked from "../../assets/icons/checked.png";
 import { PencilIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 function TodoItem(props) {
-  const { key, text, completed, completeTodo, deleteTodo, updateTodo } = props;
+  const { id, text, completed, completeTodo, deleteTodo, updateTodo } = props;
   const [onUpdate, setOnUpdate] = useState(false);
-  const [newText, setNewText] = useState(text);
-  // console.log(props)
-  const onUpdateTodo = (modifiedText) => {
-    setOnUpdate(!onUpdate);
-    console.log(modifiedText);
-    // if(onUpdate === true){
-    //     setNewText(modifiedText);
-    //     updateTodo(key, modifiedText);
-        
-    // }
-    
+  const [newText, setNewText] = useState(text); // Initialize with original text
+
+  const handleUpdateTodo = (e,modifiedText) => {
+    console.log("key",e.target.id);
+    setOnUpdate(!onUpdate); // Toggle update mode
+    if (modifiedText !== text) { // Update only if text has changed
+      updateTodo(Number(id), modifiedText); // Pass modified text to update function
+    }
   };
 
-  const getNewValue = (modifiedText) => {
-   
-  };
   return (
-    <li key={key} className={styles.todoItem} style={{ color: "gray" }}>
+    <li key={id} className={styles.todoItem} style={{ color: "gray" }}>
       <div className={styles.todoBody}>
         <div className={styles.closerContainer}>
           <span onClick={deleteTodo}>
@@ -46,15 +40,15 @@ function TodoItem(props) {
             <input
               placeholder={newText}
               value={newText}
-              onChange={(e) => onUpdateTodo(e.target.value)}
+              onChange={(e) => setNewText(e.target.value)} // Update state on input change
             />
           )}
           <div className="flex">
-            <button onClick={() => onUpdateTodo()}>
+            <button id={id} onClick={(e) => handleUpdateTodo(e, newText)}> {/* Pass current newText */}
               {!onUpdate ? (
-                <PencilIcon className="w-5 text-white opacity-30 hover:opacity-100" />
+                <PencilIcon id={id} className="w-5 text-white opacity-30 hover:opacity-100" />
               ) : (
-                <ArrowRightCircleIcon className="w-6 text-white opacity-30 hover:opacity-100" />
+                <ArrowRightCircleIcon id={id} className="w-6 text-white opacity-30 hover:opacity-100" />
               )}
             </button>
             <button></button>
