@@ -6,21 +6,35 @@ import { TodoList } from "./components/todoList";
 import { TodoItem } from "./components/todoItem";
 import { CreateTodoButton } from "./components/createTodoButton";
 
-const defaultTodos = [
-  { id: 0, text: "cortar cebolla", completed: true },
-  { id: 1, text: "estudiar react", completed: false },
-  { id: 2, text: "llorar con la cebolla", completed: true },
-];
-
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
-  const [searchValue, setSearchValue] = React.useState("");
+  const [todos, setTodos] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
-  //filtrando y contabilizando los todos completados y el total de to dos
+  // Recuperar los todos desde localStorage al cargar la app
+
+  useEffect(() => {
+    const savedTodos = localStorage.getItem("todos");
+
+    if (savedTodos) {
+      setTodos(JSON.parse(savedTodos)); // Parsear los datos guardados
+    } else {
+      const defaultTodos = [
+        { id: 0, text: "cortar cebolla", completed: true },
+        { id: 1, text: "estudiar react", completed: false },
+        { id: 2, text: "llorar con la cebolla", completed: true },
+      ];
+      setTodos(defaultTodos);
+    }
+  }, []);
+
+  // Guardar los todos en localStorage cada vez que cambian
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const completedTodos = todos.filter((todo) => todo.completed).length;
   const totalTodos = todos.length;
 
-  //funcion para la busqueda de to dos
   let searchedTodos = [];
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
@@ -32,7 +46,6 @@ function App() {
     });
   }
 
-  //funcion para completar to dos
   const completeTodo = (id) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
@@ -40,7 +53,6 @@ function App() {
     setTodos(newTodos);
   };
 
-  //funcion para eliminar to dos
   const deleteTodo = (id) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
@@ -52,24 +64,25 @@ function App() {
     const newTodos = [...todos];
     newTodos.push({ id: Math.random(), text: newText, completed: false });
     setTodos(newTodos);
-    console.log(newTodos);
   };
 
   const updateTodo = (id, newText) => {
-    console.log("UPDATE TODO ", id, newText);
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
-    newTodos[id].text = newText;
+    newTodos[todoIndex].text = newText;
     setTodos(newTodos);
   };
 
   return (
-    <React.Fragment>
-      <TodoCounter total={totalTodos} completed={completedTodos} />
+    <>
+      {/* <div className="fixed top-0 left-0 w-full h-1/5 "> */}
+        <TodoCounter total={totalTodos} completed={completedTodos} />
 
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      {/* </></div> */}
+    
       <TodoList>
-        {searchedTodos.map((todo, index) => (
+        {searchedTodos.map((todo) => (
           <TodoItem
             key={todo.id}
             id={todo.id}
@@ -83,7 +96,7 @@ function App() {
       </TodoList>
 
       <CreateTodoButton addTodo={addTodo} />
-    </React.Fragment>
+    </>
   );
 }
 

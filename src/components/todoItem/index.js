@@ -9,14 +9,13 @@ import { PencilIcon, ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 function TodoItem(props) {
   const { id, text, completed, completeTodo, deleteTodo, updateTodo } = props;
   const [onUpdate, setOnUpdate] = useState(false);
-  const [newText, setNewText] = useState(text); // Initialize with original text
+  const [newText, setNewText] = useState(text);
 
-  const handleUpdateTodo = (e,modifiedText) => {
-    console.log("key",e.target.id);
-    setOnUpdate(!onUpdate); // Toggle update mode
-    if (modifiedText !== text) { // Update only if text has changed
-      updateTodo(Number(id), modifiedText); // Pass modified text to update function
+  const handleUpdateTodo = () => {
+    if (onUpdate && newText !== text) {
+      updateTodo(id, newText); // Llama al método para actualizar en el componente padre
     }
+    setOnUpdate(!onUpdate); // Alternar el modo de edición
   };
 
   return (
@@ -38,20 +37,19 @@ function TodoItem(props) {
             <p>{text}</p>
           ) : (
             <input
-              placeholder={newText}
+              placeholder="Edit todo"
               value={newText}
-              onChange={(e) => setNewText(e.target.value)} // Update state on input change
+              onChange={(e) => setNewText(e.target.value)}
             />
           )}
           <div className="flex">
-            <button id={id} onClick={(e) => handleUpdateTodo(e, newText)}> {/* Pass current newText */}
+            <button onClick={handleUpdateTodo}>
               {!onUpdate ? (
-                <PencilIcon id={id} className="w-5 text-white opacity-30 hover:opacity-100" />
+                <PencilIcon className="w-5 text-white opacity-30 hover:opacity-100" />
               ) : (
-                <ArrowRightCircleIcon id={id} className="w-6 text-white opacity-30 hover:opacity-100" />
+                <ArrowRightCircleIcon className="w-6 text-white opacity-30 hover:opacity-100" />
               )}
             </button>
-            <button></button>
           </div>
         </div>
 

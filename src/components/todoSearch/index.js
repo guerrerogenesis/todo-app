@@ -6,7 +6,6 @@ function TodoSearch({searchValue, setSearchValue}){
     // const [ searchValue, setSearchValue ] = React.useState('');
 
     const onSearchValueChange = (event) => {
-        console.log(event.target.value);
         setSearchValue(event.target.value);
     };
 
@@ -14,7 +13,7 @@ function TodoSearch({searchValue, setSearchValue}){
         <div className={ styles.inputContainer }>
             <input 
             className={ styles.searchInput } 
-            placeholder="Cebolla"
+            placeholder="Buscar"
             value={ searchValue }
             onChange={ onSearchValueChange }
             />
