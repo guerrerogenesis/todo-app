@@ -1,13 +1,14 @@
-.todoButton{
-    @apply w-14 h-14 bg-coral rounded-full text-white text-3xl
+.todoButton {
+  @apply w-14 h-14 bg-coral rounded-full text-white text-3xl hover:scale-105 transition-transform transform;
 }
-.createContainer{
-    @apply fixed right-8 bottom-8
+.createContainer {
+  @apply fixed right-8 bottom-8;
 }
 .addTodoContainer {
-    @apply  border rounded-sm bg-opacity-90 border-white bg-white fixed right-8 bottom-28 transition-all duration-100 ease-in flex justify-center items-center
+  @apply border rounded-sm bg-opacity-90 border-white bg-white fixed right-8 bottom-28 transition-all duration-100 ease-in flex justify-center items-center;
 }
-.addTodoContainer>div{ }
-.addTodoContainer > input{
-    @apply border-b-2 border-opacity-60 border-graylight bg-none
+.addTodoContainer > div {
+}
+.addTodoContainer > input {
+  @apply border-b-2 border-opacity-60 border-graylight bg-none;
 }

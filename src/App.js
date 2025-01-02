@@ -75,12 +75,10 @@ function App() {
 
   return (
     <>
-      {/* <div className="fixed top-0 left-0 w-full h-1/5 "> */}
-        <TodoCounter total={totalTodos} completed={completedTodos} />
+      <TodoCounter total={totalTodos} completed={completedTodos} />
 
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-      {/* </></div> */}
-    
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+
       <TodoList>
         {searchedTodos.map((todo) => (
           <TodoItem
@@ -89,7 +87,7 @@ function App() {
             text={todo.text}
             completed={todo.completed}
             completeTodo={() => completeTodo(todo.id)}
-            deleteTodo={() => deleteTodo(todo.id)}
+            deleteTodo={deleteTodo}
             updateTodo={updateTodo}
           />
         ))}

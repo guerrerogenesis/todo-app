@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import styles from "./styles.module.css";
-import { PlusIcon, XMarkIcon } from "@heroicons/react/16/solid";
+import { PlusIcon } from "@heroicons/react/16/solid";
 import classNames from "classnames";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence } from "motion/react";
@@ -32,11 +32,8 @@ function CreateTodoButton(props) {
             onOpenModal();
           }}
         >
-          {!isVisible ? (
-            <PlusIcon className="w-10 m-auto text-white" />
-          ) : (
-            <XMarkIcon className="w-10 m-auto text-white" />
-          )}
+          <PlusIcon className={classNames("w-10 m-auto text-white transform transition-transform duration-300",isVisible ? "rotate-45" : "rotate-0" )} />
+          
         </button>
       </div>
       <AnimatePresence initial={false}>

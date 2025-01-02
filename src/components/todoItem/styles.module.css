@@ -14,8 +14,5 @@
     @apply  flex items-center m-auto
 }
 .checked{
-    @apply line-through decoration-4  text-graylight
-}
-.checked p{
-    @apply text-graylight
+    @apply line-through decoration-2  opacity-30
 }
