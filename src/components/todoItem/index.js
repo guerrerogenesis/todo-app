@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import classNames from "classnames/bind";
 import styles from "./styles.module.css";
 import {
@@ -14,8 +14,12 @@ function TodoItem(props) {
   const [onUpdate, setOnUpdate] = useState(false);
   const [newText, setNewText] = useState(text);
   const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+  const inputRef = useRef(null);
 
   const handleUpdateTodo = () => {
+    if (inputRef.current) {
+      inputRef.current.focus(); // Enfoca el input
+    }
     setIsOptionsOpen(false);
     setOnUpdate(!onUpdate);
     if (onUpdate && newText !== text) {
@@ -31,6 +35,8 @@ function TodoItem(props) {
     setIsOptionsOpen(false);
   };
   const handleOptions = () => {
+    console.log(inputRef);
+
     setIsOptionsOpen(!isOptionsOpen);
   };
   return (
@@ -51,7 +57,6 @@ function TodoItem(props) {
               )}
             />
           </button>
-         
         </div>
 
         <div className={styles.closerContainer}>
@@ -67,11 +72,14 @@ function TodoItem(props) {
           {!onUpdate ? (
             <p>{text}</p>
           ) : (
-            <>
+            <div div className="flex w-full">
               <input
+                ref={inputRef}
+                type="text"
                 placeholder="Edit todo"
                 value={newText}
                 onChange={(e) => setNewText(e.target.value)}
+                className="w-11/12 bg-transparent border-b-2 border-white text-white ring-offset-0 ring-0"
               />
               <button
                 className={classNames(
@@ -82,7 +90,7 @@ function TodoItem(props) {
               >
                 <ArrowRightCircleIcon className="w-6 text-white " />
               </button>
-            </>
+            </div>
           )}
           <div className="flex">
             <button
