@@ -2,19 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    
-    @apply bg-contain bg-no-repeat bg-gradient-to-tr from-ultramarine via-ultramarine to-purple min-h-screen h-auto;
+  @apply bg-contain bg-no-repeat bg-space-cadet min-h-screen h-auto;
 }
-p{
-    @apply text-white;
+p {
+  @apply text-white;
 }
 
 #root {
-    @apply max-w-[500px] m-auto
+  @apply max-w-[500px] m-auto;
 }
 
+input [type="text"] {
+  @apply bg-transparent border-b-2 border-white text-white ring-0 ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus:ring-0 focus:ring-offset-0 outline-none;
+}
 
-
-
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+input[type="text"]:focus-visible {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}

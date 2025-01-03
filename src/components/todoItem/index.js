@@ -46,8 +46,8 @@ function TodoItem(props) {
           <button
             onClick={completeTodo}
             className={classNames(
-              "border-2 border-coral rounded-full w-8 h-8 hover:scale-105 transition-all transform",
-              completed && "bg-coral"
+              "border-2 border-turquoise rounded-full w-8 h-8 hover:scale-105 transition-all transform",
+              completed && "bg-turquoise"
             )}
           >
             <CheckIcon

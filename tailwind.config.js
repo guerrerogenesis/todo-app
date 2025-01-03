@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true,
   content: [
     "./src/**/*.{html,js}",
     "./src/*.{html,js}"
@@ -15,7 +16,7 @@ module.exports = {
       'ultramarine': '#10143B',
       'black': '#000000',
       'white': '#FFFFFF',
-      'coral': '#FF776C',
+      'coral': '#E86A5B',
       'purple': '#3a099d',
       'rat': '#965299',
       'dark-primary': '#0E0E0E',
@@ -25,6 +26,8 @@ module.exports = {
       'greenish': '#72af3c',
       'redish': '#cb4e3d',
       'transparent': 'transparent',
+      'turquoise': '#76e7cd',
+      'space-cadet': '#171738',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
