@@ -21,9 +21,9 @@ function App() {
       setTodos(JSON.parse(savedTodos)); // Parsear los datos guardados
     } else {
       const defaultTodos = [
-        { id: 0, text: "cortar cebolla", completed: true },
-        { id: 1, text: "estudiar react", completed: false },
-        { id: 2, text: "llorar con la cebolla", completed: true },
+        { id: 0, text: "Enviar mail con recursos solicitados para el CRM", completed: true },
+        { id: 1, text: "Crear cuenta para nuevos usuarios", completed: false },
+        { id: 2, text: "Revisar propuestas de nueva landing", completed: true },
       ];
       setTodos(defaultTodos);
     }
