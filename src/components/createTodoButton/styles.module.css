@@ -1,8 +1,8 @@
 .todoButton {
-  @apply w-14 h-14 bg-turquoise rounded-full text-white text-3xl hover:scale-105 transition-transform transform;
+  @apply w-14 h-14 bg-turquoise rounded-full text-white text-3xl hover:scale-105 transition-transform transform shadow-center-sm shadow-turquoise;
 }
 .createContainer {
-  @apply fixed right-8 bottom-8;
+  @apply fixed right-8 bottom-8 z-10;
 }
 .addTodoContainer {
   @apply border rounded-sm bg-opacity-90 border-white bg-white fixed right-8 bottom-28 transition-all duration-100 ease-in flex justify-center items-center;

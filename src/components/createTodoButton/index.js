@@ -24,7 +24,7 @@ function CreateTodoButton(props) {
     }
   };
   return (
-    <>
+    <div className="z-10">
       <div className={styles.createContainer}>
         <button
           className={styles.todoButton}
@@ -39,7 +39,7 @@ function CreateTodoButton(props) {
       <AnimatePresence initial={false}>
         {isVisible ? (
           <motion.div
-            className={classNames("w-60", styles.addTodoContainer)}
+            className={classNames("w-60 z-10", styles.addTodoContainer)}
             initial={{ opacity: 0, height: 30 }}
             animate={{
               opacity: 1,
@@ -61,7 +61,7 @@ function CreateTodoButton(props) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
 

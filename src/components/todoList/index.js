@@ -4,7 +4,7 @@ import { FaceSmileIcon } from "@heroicons/react/24/outline";
 function TodoList(props) {
   const { children } = props;
   return (
-    <section>
+    <section className="mb-10">
       {children.length > 0 ? (
         <ul>{children}</ul>
       ) : (

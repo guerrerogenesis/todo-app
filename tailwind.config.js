@@ -28,6 +28,7 @@ module.exports = {
       'transparent': 'transparent',
       'turquoise': '#76e7cd',
       'space-cadet': '#171738',
+      'rose-bonbon': '#ec4498',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -41,7 +42,12 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      boxShadow: {
+        'center-sm': '0 0 10px 0 rgba(0, 0, 0, 0.1)',
+        'center-md': '0 0 25px 0 rgba(0, 0, 0, 0.1)',
+        'center-lg': '0 0 30px 0 rgba(0, 0, 0, 0.1)',
+      },
     }
   },
   plugins: [],

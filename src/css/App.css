@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-contain bg-no-repeat bg-space-cadet min-h-screen h-auto;
+  @apply bg-contain bg-no-repeat bg-space-cadet  h-auto;
 }
 p {
   @apply text-white;

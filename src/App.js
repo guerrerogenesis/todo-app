@@ -5,7 +5,8 @@ import { TodoSearch } from "./components/todoSearch";
 import { TodoList } from "./components/todoList";
 import { TodoItem } from "./components/todoItem";
 import { CreateTodoButton } from "./components/createTodoButton";
-import {Header} from "./components/header";
+import { Header } from "./components/header";
+import { Footer } from "./components/footer";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -76,7 +77,7 @@ function App() {
 
   return (
     <>
-      <Header/>
+      <Header />
       <TodoCounter total={totalTodos} completed={completedTodos} />
 
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -96,6 +97,8 @@ function App() {
       </TodoList>
 
       <CreateTodoButton addTodo={addTodo} />
+
+      <Footer />
     </>
   );
 }
