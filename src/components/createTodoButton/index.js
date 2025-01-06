@@ -18,9 +18,13 @@ function CreateTodoButton(props) {
     if (e.type === "keydown" && e.code === "Enter") {
       addTodo(e.target.value);
       inputRef.current.value = "";
+      setIsVisible(false);
+
     } else if (e.type === "click") {
       addTodo(e.target.previousSibling.value);
       inputRef.current.value = "";
+      setIsVisible(false);
+
     }
   };
   return (

@@ -1,7 +1,7 @@
 
 .titleCounter 
 {
-    @apply mt-10 text-3xl text-center text-white font-quicksand;
+    @apply mt-10 text-2xl lg:text-3xl text-center text-white font-quicksand;
 
 }
 
