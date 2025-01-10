@@ -7,7 +7,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer
-      class="absolute left-0 w-full bg-no-repeat bg-cover h-64 z-1"
+      class=" w-screen bg-no-repeat bg-cover h-48 lg:h-56 z-1"
       style={{ backgroundImage: `url(${bgImg}` }}
     >
       <div class="flex flex-col items-start justify-end lg:flex-row lg:justify-start lg:items-end h-full p-4 backdrop-blur-sm text-white text-sm">

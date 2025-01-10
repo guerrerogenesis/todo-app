@@ -83,9 +83,9 @@ function App() {
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
-        {searchedTodos.map((todo) => (
+        {searchedTodos.map((todo, index) => (
           <TodoItem
-            key={todo.id}
+            key={index}
             id={todo.id}
             text={todo.text}
             completed={todo.completed}

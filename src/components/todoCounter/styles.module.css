@@ -1,14 +1,6 @@
 
-.titleCounter 
-{
-    @apply mt-10 text-2xl lg:text-3xl text-center text-white font-quicksand;
 
-}
 
-.headerContainer {
-    @apply w-5/6 flex justify-center m-auto; 
-    
-}
 .headerImg {
     @apply mt-20 w-4/12;
 }

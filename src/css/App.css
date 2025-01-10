@@ -10,7 +10,7 @@ p {
 }
 
 #root {
-  @apply max-w-[500px] m-auto;
+  @apply max-w-[500px] m-auto min-h-screen flex flex-col justify-between items-center;
 }
 
 input [type="text"] {

@@ -7,9 +7,9 @@ function TodoCounter({total, completed}){
 
     return (
         <div className="h-1/5">
-            <div className={ classNames(styles.headerContainer, "mt-28") }>
+            <div className="w-5/6 flex justify-center m-auto mt-28">
             </div>
-            <h3 className={classNames( styles.titleCounter, "") }>Has completado {completed}/{total} Tareas</h3>
+            <h3 className="mt-10 text-2xl md:text-2xl lg:text-3xl text-center text-white font-quicksand">Has completado {completed}/{total} Tareas</h3>
         </div>
     );
 }
